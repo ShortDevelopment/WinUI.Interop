@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Media;
 
-namespace UWPInterop
+namespace WinUI.Interop.CoreWindow
 {
     //MIDL_INTERFACE("ddb0472d-c911-4a1f-86d9-dc3d71a95f5a")
     //ISystemMediaTransportControlsInterop : public IInspectable

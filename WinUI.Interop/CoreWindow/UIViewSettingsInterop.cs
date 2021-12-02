@@ -4,7 +4,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.UI.ViewManagement;
 
-namespace UWPInterop
+namespace WinUI.Interop.CoreWindow
 {
     //MIDL_INTERFACE("3694dbf9-8f68-44be-8ff5-195c98ede8a6")
     //IUIViewSettingsInterop : public IInspectable

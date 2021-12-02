@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.Foundation;
-using Windows.Graphics.Printing;
+using Windows.Graphics.Printing3D;
 
-namespace UWPInterop
+namespace WinUI.Interop.CoreWindow
 {
-    //MIDL_INTERFACE("c5435a42-8d43-4e7b-a68a-ef311e392087")
-    //IPrintManagerInterop : public IInspectable
+    //MIDL_INTERFACE("9CA31010-1484-4587-B26B-DDDF9F9CAECD")
+    //IPrinting3DManagerInterop : public IInspectable
     //{
     //public:
     //    virtual HRESULT STDMETHODCALLTYPE GetForWindow(
@@ -22,31 +22,30 @@ namespace UWPInterop
     //        /* [iid_is][retval][out] */ __RPC__deref_out_opt void** asyncOperation) = 0;
 
     //};
-
-    [System.Runtime.InteropServices.Guid("c5435a42-8d43-4e7b-a68a-ef311e392087")]
+    [System.Runtime.InteropServices.Guid("9CA31010-1484-4587-B26B-DDDF9F9CAECD")]
     [System.Runtime.InteropServices.InterfaceType(System.Runtime.InteropServices.ComInterfaceType.InterfaceIsIInspectable)]
-    public interface IPrintManagerInterop
+    public interface IPrinting3DManagerInterop
     {
-        PrintManager GetForWindow(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
+        Print3DManager GetForWindow(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
         IAsyncOperation<bool> ShowPrintUIForWindowAsync(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
     }
 
-    //Helper to initialize PrintManager
-    public static class PrintManagerInterop
+    //Helper to initialize Print3DManager
+    public static class Print3DManagerInterop
     {
-        public static PrintManager GetForWindow(IntPtr hWnd)
+        public static Print3DManager GetForWindow(IntPtr hWnd)
         {
-            IPrintManagerInterop printManagerInterop = (IPrintManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(PrintManager));
-            Guid guid = typeof(PrintManager).GetInterface("IPrintManager").GUID;
+            IPrinting3DManagerInterop printing3DManagerInterop = (IPrinting3DManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(Print3DManager));
+            Guid guid = typeof(Print3DManager).GUID;
 
-            return printManagerInterop.GetForWindow(hWnd, ref guid);
+            return printing3DManagerInterop.GetForWindow(hWnd, ref guid);
         }
         public static IAsyncOperation<bool> ShowPrintUIForWindowAsync(IntPtr hWnd)
         {
-            IPrintManagerInterop printManagerInterop = (IPrintManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(PrintManager));
+            IPrinting3DManagerInterop printing3DManagerInterop = (IPrinting3DManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(Print3DManager));
             Guid guid = typeof(IAsyncOperation<bool>).GUID;
 
-            return printManagerInterop.ShowPrintUIForWindowAsync(hWnd, ref guid);
+            return printing3DManagerInterop.ShowPrintUIForWindowAsync(hWnd, ref guid);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace UWPInterop
+namespace WinUI.Interop.Dialog
 {
 
     [ComImport]

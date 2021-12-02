@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UWPInterop
+namespace WinUI.Interop
 {
 
     public class InteropHelper

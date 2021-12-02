@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.ApplicationModel.UserActivities;
 
-namespace UWPInterop
+namespace WinUI.Interop.CoreWindow
 {
     //MIDL_INTERFACE("1ADE314D-0E0A-40D9-824C-9A088A50059F")
     //IUserActivityInterop : public IInspectable

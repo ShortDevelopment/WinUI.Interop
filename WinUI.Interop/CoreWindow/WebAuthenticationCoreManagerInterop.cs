@@ -6,7 +6,7 @@ using Windows.Foundation;
 using Windows.Security.Authentication.Web.Core;
 using Windows.Security.Credentials;
 
-namespace UWPInterop
+namespace WinUI.Interop.CoreWindow
 {
     //MIDL_INTERFACE("F4B8E804-811E-4436-B69C-44CB67B72084")
     //IWebAuthenticationCoreManagerInterop : public IInspectable

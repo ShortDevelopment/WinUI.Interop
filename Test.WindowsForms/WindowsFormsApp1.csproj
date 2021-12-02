@@ -80,7 +80,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UWPInterop\UWPInterop.csproj">
+    <ProjectReference Include="..\WinUI.Interop\WinUI.Interop.csproj">
       <Project>{5a301e20-616a-43df-9c81-132ee605470a}</Project>
       <Name>UWPInterop</Name>
     </ProjectReference>

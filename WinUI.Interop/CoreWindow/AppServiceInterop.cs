@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.AppService;
 using Windows.Foundation;
 
-namespace UWPInterop
+namespace WinUI.Interop.CoreWindow
 {
     //MIDL_INTERFACE("65219584-F9CB-4AE3-81F9-A28A6CA450D9")
     //IAppServiceConnectionExtendedExecution : public IUnknown

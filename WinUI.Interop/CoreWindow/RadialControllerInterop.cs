@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Input;
 using Windows.UI.Input.Core;
 
-namespace UWPInterop
+namespace WinUI.Interop.CoreWindow
 {
     //RadialControllerInterop.h
     //    MIDL_INTERFACE("1B0535C9-57AD-45C1-9D79-AD5C34360513")
