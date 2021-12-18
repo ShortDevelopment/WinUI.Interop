@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WinUI.Interop": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

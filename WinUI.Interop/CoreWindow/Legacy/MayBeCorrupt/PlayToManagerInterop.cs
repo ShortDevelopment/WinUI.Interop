@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using Windows.Media.PlayTo;
 
-namespace WinUI.Interop.CoreWindow
+namespace WinUI.Interop.CoreWindow.Legacy
 {
     //MIDL_INTERFACE("24394699-1F2C-4EB3-8CD7-0EC1DA42A540")
     //IPlayToManagerInterop : public IInspectable
@@ -28,20 +25,20 @@ namespace WinUI.Interop.CoreWindow
         void ShowPlayToUIForWindow(IntPtr appWindow);
     }
 
-    //Helper to initialize PlayToManager
+    [Obsolete("https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/winrt-com-interop-csharp#available-interop-classes")]
     public static class PlayToManagerInterop
     {
         [Obsolete]
         public static PlayToManager GetForWindow(IntPtr hWnd)
         {
-            IPlayToManagerInterop playToManagerInterop = (IPlayToManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(PlayToManager));
+            IPlayToManagerInterop playToManagerInterop = (IPlayToManagerInterop)InteropHelper.GetActivationFactory<IPlayToManagerInterop>(typeof(PlayToManager));
             Guid guid = typeof(PlayToManager).GUID;
 
             return playToManagerInterop.GetForWindow(hWnd, ref guid);
         }
         public static void ShowPlayToUIForWindow(IntPtr hWnd)
         {
-            IPlayToManagerInterop playToManagerInterop = (IPlayToManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(PlayToManager));
+            IPlayToManagerInterop playToManagerInterop = (IPlayToManagerInterop)InteropHelper.GetActivationFactory<IPlayToManagerInterop>(typeof(PlayToManager));
             playToManagerInterop.ShowPlayToUIForWindow(hWnd);
         }
     }

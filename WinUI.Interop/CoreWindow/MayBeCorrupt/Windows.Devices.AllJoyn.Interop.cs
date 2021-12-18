@@ -95,7 +95,7 @@ namespace WinUI.Interop.CoreWindow
     {
         public static IntPtr GetWin32Handle()
         {
-            IWindowsDevicesAllJoynBusAttachmentInterop allJoynBusAttachmentInterop = (IWindowsDevicesAllJoynBusAttachmentInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(AllJoynBusAttachment));
+            IWindowsDevicesAllJoynBusAttachmentInterop allJoynBusAttachmentInterop = (IWindowsDevicesAllJoynBusAttachmentInterop)InteropHelper.GetActivationFactory<IWindowsDevicesAllJoynBusAttachmentInterop>(typeof(AllJoynBusAttachment));
 
             //Guid guid = typeof(AllJoynBusAttachment).GetInterface("IAllJoynBusAttachment").GUID;
             //Guid guid = typeof(AllJoynBusAttachment).GUID;
@@ -109,7 +109,7 @@ namespace WinUI.Interop.CoreWindow
     {
         public static AllJoynBusAttachment CreateFromWin32Handle(IntPtr hWnd, bool enableAboutData)
         {
-            IWindowsDevicesAllJoynBusAttachmentFactoryInterop allJoynBusAttachmentInterop = (IWindowsDevicesAllJoynBusAttachmentFactoryInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(AllJoynBusAttachment));
+            IWindowsDevicesAllJoynBusAttachmentFactoryInterop allJoynBusAttachmentInterop = (IWindowsDevicesAllJoynBusAttachmentFactoryInterop)InteropHelper.GetActivationFactory<IWindowsDevicesAllJoynBusAttachmentInterop>(typeof(AllJoynBusAttachment));
 
             //Guid guid = typeof(AllJoynBusAttachmentFactory).GetInterface("IAllJoynBusAttachmentFactory").GUID;
             Guid guid = typeof(AllJoynBusAttachment).GUID;
@@ -123,7 +123,7 @@ namespace WinUI.Interop.CoreWindow
     {
         public static AllJoynBusObject CreateFromWin32Handle(IntPtr hWnd)
         {
-            IWindowsDevicesAllJoynBusObjectFactoryInterop allJoynBusObjectInterop = (IWindowsDevicesAllJoynBusObjectFactoryInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(AllJoynBusObject));
+            IWindowsDevicesAllJoynBusObjectFactoryInterop allJoynBusObjectInterop = (IWindowsDevicesAllJoynBusObjectFactoryInterop)InteropHelper.GetActivationFactory<IWindowsDevicesAllJoynBusObjectFactoryInterop>(typeof(AllJoynBusObject));
 
             //Guid guid = typeof(AllJoynBusObject).GetInterface("IAllJoynBusObject").GUID;
             Guid guid = typeof(AllJoynBusObject).GUID;

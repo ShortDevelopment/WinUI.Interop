@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using Windows.UI.ViewManagement;
 
-namespace WinUI.Interop.CoreWindow
+namespace WinUI.Interop.CoreWindow.Legacy
 {
     //MIDL_INTERFACE("75CF2C57-9195-4931-8332-F0B409E916AF")
     //IInputPaneInterop : public IInspectable
@@ -23,12 +20,12 @@ namespace WinUI.Interop.CoreWindow
         InputPane GetForWindow(IntPtr appWindow, [System.Runtime.InteropServices.In] ref Guid riid);
     }
 
-    //Helper to initialize InputPane
+    [Obsolete("https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/winrt-com-interop-csharp#available-interop-classes")]
     public static class InputPaneInterop
     {
         public static InputPane GetForWindow(IntPtr hWnd)
         {
-            IInputPaneInterop inputPaneInterop = (IInputPaneInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(InputPane));
+            IInputPaneInterop inputPaneInterop = (IInputPaneInterop)InteropHelper.GetActivationFactory<IInputPaneInterop>(typeof(InputPane));
             Guid guid = typeof(InputPane).GUID;
 
             return inputPaneInterop.GetForWindow(hWnd, ref guid);

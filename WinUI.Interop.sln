@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinUI.Interop", "WinUI.Interop\WinUI.Interop.csproj", "{5A301E20-616A-43DF-9C81-132EE605470A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.WindowsForms", "Test.WindowsForms\WindowsFormsApp1.csproj", "{14226FC7-E06C-4526-AF17-EC56C915D2E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.WindowsForms", "Test.WindowsForms\Test.WindowsForms.csproj", "{14226FC7-E06C-4526-AF17-EC56C915D2E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FACCEE5D-609C-48A2-BE5F-C34113B2FEFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14226FC7-E06C-4526-AF17-EC56C915D2E8} = {FACCEE5D-609C-48A2-BE5F-C34113B2FEFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {796CB9ED-907B-4FF7-AE6C-47F884C7ABE4}

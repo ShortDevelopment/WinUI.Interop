@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using Windows.ApplicationModel.UserActivities;
 
 namespace WinUI.Interop.CoreWindow
@@ -59,7 +56,7 @@ namespace WinUI.Interop.CoreWindow
     {
         public static UserActivitySession CreateSessionForWindow(IntPtr hWnd)
         {
-            IUserActivityInterop userActivityInterop = (IUserActivityInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(UserActivitySession));
+            IUserActivityInterop userActivityInterop = (IUserActivityInterop)InteropHelper.GetActivationFactory<IUserActivitySourceHostInterop>(typeof(UserActivitySession));
             Guid guid = typeof(UserActivitySession).GUID;
 
             return userActivityInterop.CreateSessionForWindow(hWnd, ref guid);
@@ -67,12 +64,12 @@ namespace WinUI.Interop.CoreWindow
 
         public static void SetActivitySourceHost(string activitySourceHost)
         {
-            IUserActivitySourceHostInterop userActivitySourceHostInterop = (IUserActivitySourceHostInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(UserActivityChannel));
+            IUserActivitySourceHostInterop userActivitySourceHostInterop = (IUserActivitySourceHostInterop)InteropHelper.GetActivationFactory<IUserActivitySourceHostInterop>(typeof(UserActivityChannel));
             userActivitySourceHostInterop.SetActivitySourceHost(activitySourceHost);
         }
         public static UserActivityRequestManager GetForWindow(IntPtr hWnd)
         {
-            IUserActivityRequestManagerInterop userActivityRequestManagerInterop = (IUserActivityRequestManagerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(UserActivityRequestManager));
+            IUserActivityRequestManagerInterop userActivityRequestManagerInterop = (IUserActivityRequestManagerInterop)InteropHelper.GetActivationFactory<IUserActivitySourceHostInterop>(typeof(UserActivityRequestManager));
             Guid guid = typeof(UserActivityRequestManager).GUID;
 
             return userActivityRequestManagerInterop.GetForWindow(hWnd, ref guid);

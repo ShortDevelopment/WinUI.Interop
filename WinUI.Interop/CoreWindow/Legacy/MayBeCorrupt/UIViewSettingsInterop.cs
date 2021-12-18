@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
 using Windows.UI.ViewManagement;
 
-namespace WinUI.Interop.CoreWindow
+namespace WinUI.Interop.CoreWindow.Legacy
 {
     //MIDL_INTERFACE("3694dbf9-8f68-44be-8ff5-195c98ede8a6")
     //IUIViewSettingsInterop : public IInspectable
@@ -63,12 +60,12 @@ namespace WinUI.Interop.CoreWindow
         void SetActiveIcon(IntPtr value);
     }
 
-    //Helper to initialize UIViewSettings
+    [Obsolete("https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/winrt-com-interop-csharp#available-interop-classes")]
     public static class UIViewSettingsInterop
     {
         public static UIViewSettings GetForWindow(IntPtr hWnd)
         {
-            IUIViewSettingsInterop uIViewSettingsInterop = (IUIViewSettingsInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(UIViewSettings));
+            IUIViewSettingsInterop uIViewSettingsInterop = (IUIViewSettingsInterop)InteropHelper.GetActivationFactory<IUIViewSettingsInterop>(typeof(UIViewSettings));
             Guid guid = typeof(UIViewSettings).GUID;
 
             return uIViewSettingsInterop.GetForWindow(hWnd, ref guid);

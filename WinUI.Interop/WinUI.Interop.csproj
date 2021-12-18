@@ -1,19 +1,53 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net5.0-windows10.0.19041.0</TargetFrameworks>
+		<LangVersion>9</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.18362.2002-preview" />
-    <PackageReference Include="System.Runtime.InteropServices.WindowsRuntime" Version="4.3.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+	<!-- netstandard2.0 -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.0" />
+		<PackageReference Include="System.Runtime.InteropServices.WindowsRuntime" Version="4.3.0" />
+	</ItemGroup>
+
+	<!-- net5.0-windows -->
+	<PropertyGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+		<TargetPlatformVersion>10.0.22000.196</TargetPlatformVersion>
+		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+		<RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+		<UseWinUI>true</UseWinUI>
+		<DefineConstants>$(DefineConstants);USING_WINUI</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
+		<PackageReference Include="Microsoft.Windows.CsWinRT" Version="1.4.1" />
+		<PackageReference Include="Microsoft.ProjectReunion.WinUI" Version="0.8.6" />
+	</ItemGroup>
+
+	<!-- nuget.org -->
+	<PropertyGroup>
+	  <Version>0.1.0</Version>
+	  <Authors>ShortDevelopment</Authors>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
+	  <PackageProjectUrl>https://github.com/ShortDevelopment/WinUI.Interop</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/ShortDevelopment/WinUI.Interop</RepositoryUrl>
+	  <PackageTags>winui interop uwp winrt appcontainer win32</PackageTags>
+	  <AssemblyVersion>0.1.0.0</AssemblyVersion>
+	  <FileVersion>0.1.0.0</FileVersion>
+	  <Description>Important wrappers for UI stuff depending on CoreWindow and other usefull interop (e.g. for WinUI Windows or AppContainer stuff).</Description>
+	  <Copyright>(c) 2021 ShortDevelopment</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>

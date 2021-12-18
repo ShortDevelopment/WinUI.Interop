@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Input;
 using Windows.UI.Input.Core;
 
-namespace WinUI.Interop.CoreWindow
+namespace WinUI.Interop.CoreWindow.Legacy
 {
     //RadialControllerInterop.h
     //    MIDL_INTERFACE("1B0535C9-57AD-45C1-9D79-AD5C34360513")
@@ -66,37 +63,37 @@ namespace WinUI.Interop.CoreWindow
         RadialControllerIndependentInputSource CreateForWindow(IntPtr hwnd, [System.Runtime.InteropServices.In]ref Guid riid);
     }
 
-    //Helper to initialize RadialController
+    [Obsolete("https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/winrt-com-interop-csharp#available-interop-classes")]
     public static class RadialControllerInterop
     {
         public static RadialController Initialize(IntPtr hWnd)
         {
-            IRadialControllerInterop radialControllerInterop = (IRadialControllerInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(RadialController));
+            IRadialControllerInterop radialControllerInterop = (IRadialControllerInterop)InteropHelper.GetActivationFactory<IRadialControllerInterop>(typeof(RadialController));
             Guid guid = typeof(RadialController).GUID;
             
             return radialControllerInterop.CreateForWindow(hWnd, ref guid);
         }
     }
 
-    //Helper to initialize RadialControllerConfiguration
+    [Obsolete("https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/winrt-com-interop-csharp#available-interop-classes")]
     public static class RadialControllerConfigurationInterop
     {
         public static RadialControllerConfiguration Initialize(IntPtr hWnd)
         {
 
-            IRadialControllerConfigurationInterop radialControllerConfigInterop = (IRadialControllerConfigurationInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(RadialControllerConfiguration));
+            IRadialControllerConfigurationInterop radialControllerConfigInterop = (IRadialControllerConfigurationInterop)InteropHelper.GetActivationFactory<IRadialControllerInterop>(typeof(RadialControllerConfiguration));
             Guid guid = typeof(RadialControllerConfiguration).GUID;
 
             return radialControllerConfigInterop.GetForWindow(hWnd, ref guid);
         }
     }
 
-    //Helper to initialize RadialControllerIndependentInputSource
+    [Obsolete("https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/winrt-com-interop-csharp#available-interop-classes")]
     public static class RadialControllerIndependentInputSourceInterop
     {
         public static RadialControllerIndependentInputSource Initialize(IntPtr hwnd)
         {
-            IRadialControllerIndependentInputSourceInterop radialControllerIndependentInputSourceInterop = (IRadialControllerIndependentInputSourceInterop)WindowsRuntimeMarshal.GetActivationFactory(typeof(RadialControllerIndependentInputSource));
+            IRadialControllerIndependentInputSourceInterop radialControllerIndependentInputSourceInterop = (IRadialControllerIndependentInputSourceInterop)InteropHelper.GetActivationFactory<IRadialControllerInterop>(typeof(RadialControllerIndependentInputSource));
             Guid guid = typeof(RadialControllerIndependentInputSource).GUID;
 
             return radialControllerIndependentInputSourceInterop.CreateForWindow(hwnd, ref guid);
