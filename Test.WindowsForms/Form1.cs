@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.ApplicationSettings;
+using WinUI.Interop;
 using WinUI.Interop.CoreWindow;
 using WinUI.Interop.CoreWindow.Legacy;
 
@@ -13,6 +14,8 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+
+            MessageBox.Show($"IsAppContainer: {InteropHelper.IsAppContainer()}; HasPackageIdentity: {InteropHelper.HasPackageIdentity()}");
         }
 
         private async void Button1_Click(object sender, EventArgs e)
