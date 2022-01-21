@@ -31,16 +31,16 @@
 
 	<!-- nuget.org -->
 	<PropertyGroup>
-	  <Version>0.1.2</Version>
+	  <Version>0.2.0</Version>
 	  <Authors>ShortDevelopment</Authors>
 	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
 	  <PackageProjectUrl>https://github.com/ShortDevelopment/WinUI.Interop</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/ShortDevelopment/WinUI.Interop</RepositoryUrl>
 	  <PackageTags>winui interop uwp winrt appcontainer win32</PackageTags>
-	  <AssemblyVersion>0.1.2.0</AssemblyVersion>
-	  <FileVersion>0.1.2.0</FileVersion>
+	  <AssemblyVersion>0.2.0.0</AssemblyVersion>
+	  <FileVersion>0.2.0.0</FileVersion>
 	  <Description>This package contains the interop wrappers for WinRT-APIs, that depend on CoreWindow, and other interop helpers for WinUI Window (e.g. to set an icon). There are also some interop components that may help from inside an AppContainer like when using UWP.</Description>
-	  <Copyright>© 2021 ShortDevelopment</Copyright>
+	  <Copyright>© 2022 ShortDevelopment</Copyright>
 	</PropertyGroup>
 
 	<ItemGroup>

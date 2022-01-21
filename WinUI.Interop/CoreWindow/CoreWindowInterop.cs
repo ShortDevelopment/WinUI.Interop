@@ -6,6 +6,10 @@ using WinRT;
 
 namespace WinUI.Interop.CoreWindow
 {
+    /// <summary>
+    /// Is implemented by <see cref="Windows.UI.Core.CoreWindow"/> <br/>
+    /// Used to get the handle of the window
+    /// </summary>
     [ComImport, Guid("45D64A29-A63E-4CB6-B498-5781D298CB4F")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     public interface ICoreWindowInterop
@@ -14,8 +18,14 @@ namespace WinUI.Interop.CoreWindow
         bool MessageHandled { get; }
     }
 
+    /// <summary>
+    /// Get low-level information about a <see cref="Windows.UI.Core.CoreWindow"/> (e.g. its handle)
+    /// </summary>
     public static class CoreWindowInterop
     {
+        /// <summary>
+        /// Get's the <see cref="ICoreWindowInterop"/> for the <see cref="Windows.UI.Core.CoreWindow"/> of the current thread
+        /// </summary>
         public static ICoreWindowInterop Instance
         {
             get
@@ -29,8 +39,15 @@ namespace WinUI.Interop.CoreWindow
             }
         }
 
+        /// <summary>
+        /// Handle of the <see cref="Windows.UI.Core.CoreWindow"/> of the current thread
+        /// </summary>
         public static IntPtr CoreWindowHwnd { get => Instance.WindowHandle; }
 
+        /// <summary>
+        /// Handle of the <c>ApplicationFrameWindow</c> of the current thread. <br/>
+        /// This window is hosted by another process!
+        /// </summary>
         public static IntPtr FrameWindowHwnd { get => GetParent(CoreWindowHwnd); }
 
         [DllImport("user32.dll", SetLastError = true)]
