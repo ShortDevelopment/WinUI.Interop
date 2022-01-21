@@ -49,7 +49,7 @@ DataTransferManagerInterop.ShowShareUIForWindow(Process.GetCurrentProcess().Main
 #### TargetFramework >= net5.0
 ```csharp
 using WinRT;
-using WinUI.Interop.NativeWindow;
+using WinUI.Interop.CoreWindow;
 ```
 ```csharp
 FileSavePicker picker = new FileSavePicker();
@@ -60,7 +60,7 @@ StorageFile file = await picker.PickSaveFileAsync();
 ```
 #### TargetFramework < net5.0
 ```csharp
-using WinUI.Interop.NativeWindow;
+using WinUI.Interop.CoreWindow;
 ```
 ```csharp
 FileSavePicker picker = new FileSavePicker();
