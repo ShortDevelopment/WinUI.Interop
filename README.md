@@ -84,3 +84,12 @@ async void ...()
     VolumeManager = await AudioInterfaceActivator.ActivateAudioInterfaceAsync<IAudioEndpointVolume>(deviceId);
 }
 ```
+
+### *UWP*: Handle of `CoreWindow`
+```csharp
+using System;
+using WinUI.Interop.CoreWindow;
+```
+```csharp
+IntPtr hWnd = CoreWindowInterop.CoreWindowHwnd;
+```
