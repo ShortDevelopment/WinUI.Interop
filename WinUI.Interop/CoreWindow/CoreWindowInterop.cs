@@ -7,15 +7,21 @@ using WinRT;
 namespace WinUI.Interop.CoreWindow
 {
     /// <summary>
-    /// Is implemented by <see cref="Windows.UI.Core.CoreWindow"/> <br/>
-    /// Used to get the handle of the window
+    /// Enables apps to obtain the window handle of the window (<see cref="Windows.UI.Core.CoreWindow"/>) associated with this interface.
     /// </summary>
     [ComImport, Guid("45D64A29-A63E-4CB6-B498-5781D298CB4F")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     public interface ICoreWindowInterop
     {
+        /// <summary>
+        /// Obtains the handle (HWND) to the CoreWindow for an app.
+        /// </summary>
         IntPtr WindowHandle { get; }
-        bool MessageHandled { get; }
+
+        /// <summary>
+        /// Sets whether or not the message to the CoreWindow has been handled.
+        /// </summary>
+        bool MessageHandled { set; }
     }
 
     /// <summary>
