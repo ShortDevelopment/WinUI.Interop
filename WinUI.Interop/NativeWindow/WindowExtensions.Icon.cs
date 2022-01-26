@@ -15,7 +15,7 @@ namespace WinUI.Interop.NativeWindow
     /// Provides Extension for the <c>WinUI</c> <see cref="Microsoft.UI.Xaml.Window"/> <br/>
     /// Can be used with any <c>Win32</c> Window
     /// </summary>
-    public static class WindowExtensions
+    public static partial class WindowExtensions
     {
         /// <summary>
         /// Set's the icon of a <c>Win32</c> Window
