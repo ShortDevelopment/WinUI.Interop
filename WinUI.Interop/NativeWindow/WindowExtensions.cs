@@ -1,11 +1,10 @@
 ﻿#if USING_WINUI
+using Microsoft.UI;
+using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
+using System;
 using WinRT;
 #endif
-
-using System;
-using Microsoft.UI.Windowing;
-using Microsoft.UI;
 
 namespace WinUI.Interop.NativeWindow
 {
