@@ -41,7 +41,7 @@ namespace WinUI.Interop.NativeWindow
         /// </summary>
         /// <param name="window">Reference to a <c>WinUI</c> <see cref="Microsoft.UI.Xaml.Window"/></param>
         /// <param name="resourceName">Full qualified name of the embedded resource icon file</param>
-        public static void SetIcon(this Window window, string resourceName) => SetIcon(window.As<IWindowNative>().WindowHandle, resourceName);
+        public static void SetIcon(this Window window, string resourceName) => SetIcon(window.GetHandle(), resourceName);
 #endif
 
         #region SendMessage
