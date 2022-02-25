@@ -117,7 +117,7 @@ namespace WinUI.Interop
         #region HasPackageIdentity
         private const int APPMODEL_ERROR_NO_PACKAGE = 15700;
 
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true, ExactSpelling = true)]
         private extern static int GetCurrentPackageFullName(ref int packageFullNameLength, StringBuilder packageFullName);
         #endregion
 
@@ -138,7 +138,7 @@ namespace WinUI.Interop
 
         private const int CurrentProcessPseudoToken = -4;
 
-        [DllImport("Advapi32.dll", SetLastError = true)]
+        [DllImport("Advapi32.dll", SetLastError = true, ExactSpelling = true)]
         private extern static bool GetTokenInformation(IntPtr TokenHandle, uint TokenInformationClass, ref uint TokenInformation, ref uint TokenInformationLength, out uint ReturnLength);
         #endregion
     }

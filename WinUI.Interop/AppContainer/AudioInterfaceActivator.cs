@@ -21,7 +21,7 @@ namespace WinUI.Interop.AppContainer
             return await activationHandler;
         }
 
-        [DllImport("Mmdevapi.dll", EntryPoint = "ActivateAudioInterfaceAsync"), PreserveSig]
+        [DllImport("Mmdevapi.dll", EntryPoint = "ActivateAudioInterfaceAsync", ExactSpelling = true), PreserveSig]
         private static extern uint ActivateAudioInterfaceAsyncInternal([In][MarshalAs(UnmanagedType.LPWStr)] string deviceInterfacePath, [In][MarshalAs(UnmanagedType.LPStruct)] Guid riid, [In] IntPtr activationParams, [In] IActivateAudioInterfaceCompletionHandler completionHandler, out IActivateAudioInterfaceAsyncOperation activationOperation);
 
         [ComImport]

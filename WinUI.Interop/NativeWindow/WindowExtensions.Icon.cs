@@ -47,7 +47,7 @@ namespace WinUI.Interop.NativeWindow
         #region SendMessage
         private const uint WM_SETICON = 0x0080;
 
-        [DllImport("user32")]
+        [DllImport("user32", ExactSpelling = true)]
         private static extern void SendMessage(IntPtr hWnd, uint msgId, IntPtr reserved, IntPtr hIcon);
         #endregion
     }

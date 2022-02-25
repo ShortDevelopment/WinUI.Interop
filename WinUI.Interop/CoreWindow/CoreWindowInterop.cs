@@ -56,7 +56,7 @@ namespace WinUI.Interop.CoreWindow
         /// </summary>
         public static IntPtr FrameWindowHwnd { get => GetParent(CoreWindowHwnd); }
 
-        [DllImport("user32.dll", SetLastError = true)]
+        [DllImport("user32.dll", SetLastError = true, ExactSpelling = true)]
         private static extern IntPtr GetParent(IntPtr hWnd);
     }
 }
