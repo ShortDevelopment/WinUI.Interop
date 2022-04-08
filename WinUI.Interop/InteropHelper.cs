@@ -63,9 +63,9 @@ namespace WinUI.Interop
                 var method = classType.GetMethod("As", BindingFlags.Static | BindingFlags.Public);
                 return method.MakeGenericMethod(new[] { typeof(T) }).Invoke(null, null).As<T>();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new PlatformNotSupportedException("Please use the built-in net5.0 interops!" + Environment.NewLine + "https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/winrt-com-interop-csharp#available-interop-classes");
+                throw new PlatformNotSupportedException("Please use the built-in net5.0 interops!" + Environment.NewLine + "https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/winrt-com-interop-csharp#available-interop-classes", ex);
             }
 #else
             return (T)WindowsRuntimeMarshal.GetActivationFactory(classType);
