@@ -2,7 +2,10 @@
 This package contains the interop wrappers for *WinRT*-APIs, that depend on `CoreWindow`, and other interop helpers for *WinUI* `Window` (e.g. to set an icon).   
 There are also some interop components that may help from inside an AppContainer like when using *UWP*.   
    
-This package is based on the work of [AdamBraden/WindowsInteropWrappers](https://github.com/AdamBraden/WindowsInteropWrappers).
+This package is based on the work of [AdamBraden/WindowsInteropWrappers](https://github.com/AdamBraden/WindowsInteropWrappers).   
+   
+  
+[![grafic](https://img.shields.io/static/v1?label=Nuget&message=WinUI.Interop&color=004880&style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/WinUI.Interop/)
 
 ## Examples
 ### *WinUI3*: window icon
