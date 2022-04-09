@@ -12,7 +12,7 @@ namespace WinUI.Interop.AppContainer
     /// <summary>
     /// <see href="https://gist.github.com/wbokkers/74e05ccc1ee2371ec55c4a7daf551a26"/>
     /// </summary>
-    public class AudioInterfaceActivator
+    public static class AudioInterfaceActivator
     {
         public static async Task<T> ActivateAudioInterfaceAsync<T>(string deviceInterfacePath)
         {
@@ -34,7 +34,7 @@ namespace WinUI.Interop.AppContainer
 
         private class ActivateAudioInterfaceCompletionHandler<T> : IActivateAudioInterfaceCompletionHandler
         {
-            private TaskCompletionSource<T> promise = new TaskCompletionSource<T>();
+            private TaskCompletionSource<T> promise = new();
 
             public void ActivateCompleted(IActivateAudioInterfaceAsyncOperation activateOperation)
             {
@@ -50,7 +50,8 @@ namespace WinUI.Interop.AppContainer
 #endif
             }
 
-            public TaskAwaiter<T> GetAwaiter() => promise.Task.GetAwaiter();
+            public TaskAwaiter<T> GetAwaiter()
+                => promise.Task.GetAwaiter();
         }
 
         [ComImport]

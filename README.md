@@ -7,6 +7,8 @@ This package is based on the work of [AdamBraden/WindowsInteropWrappers](https:/
   
 [![grafic](https://img.shields.io/static/v1?label=Nuget&message=WinUI.Interop&color=004880&style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/WinUI.Interop/)
 
+---
+
 ## Examples
 ### *WinUI3*: window icon
 The `BuildAction` of the icon file has to be set to `Embedded resource` in the *Properties* window!
@@ -26,6 +28,8 @@ namespace NAMESPACE
     }
 }
 ```
+
+---
 
 ### *Win32*: share content
 ```csharp
@@ -72,6 +76,22 @@ FileSavePicker picker = new FileSavePicker();
 StorageFile file = await picker.PickSaveFileAsync();
 ...
 ```
+
+---
+
+### `RuntimeInformation`
+```csharp
+using WinUI.Interop;
+```
+```csharp
+RuntimeInformation.IsUWP;
+RuntimeInformation.IsPackagedWin32;
+RuntimeInformation.IsUnpackagedWin32;
+
+RuntimeInformation.HasCapability("extendedExecutionBackgroundAudio");
+```
+
+---
 
 ### *UWP*: Lowlevel audio control
 ```csharp
