@@ -2,7 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;net5.0-windows10.0.19041.0</TargetFrameworks>
-		<LangVersion>9</LangVersion>
+		<LangVersion>latest</LangVersion>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -11,8 +12,12 @@
 
 	<!-- netstandard2.0 -->
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.0" />
-		<PackageReference Include="System.Runtime.InteropServices.WindowsRuntime" Version="4.3.0" />
+		<PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.0">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="System.Runtime.InteropServices.WindowsRuntime" Version="4.3.0">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<!-- net5.0-windows -->
@@ -31,38 +36,25 @@
 
 	<!-- nuget.org -->
 	<PropertyGroup>
-	  <Version>0.2.2</Version>
-	  <Authors>ShortDevelopment</Authors>
-	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
-	  <PackageProjectUrl>https://github.com/ShortDevelopment/WinUI.Interop</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/ShortDevelopment/WinUI.Interop</RepositoryUrl>
-	  <PackageTags>winui interop uwp winrt appcontainer win32</PackageTags>
-	  <AssemblyVersion>0.2.2.0</AssemblyVersion>
-	  <FileVersion>0.2.2.0</FileVersion>
-	  <Description>This package contains the interop wrappers for WinRT-APIs, that depend on CoreWindow, and other interop helpers for WinUI Window (e.g. to set an icon). There are also some interop components that may help from inside an AppContainer like when using UWP.</Description>
-	  <Copyright>© 2022 ShortDevelopment</Copyright>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0-windows10.0.19041.0|AnyCPU'">
-	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0-windows10.0.19041.0|AnyCPU'">
-	  <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Version>0.2.4</Version>
+		<Authors>ShortDevelopment</Authors>
+		<PackageReadmeFile>Readme.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/ShortDevelopment/WinUI.Interop</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ShortDevelopment/WinUI.Interop</RepositoryUrl>
+		<PackageTags>winui interop uwp winrt appcontainer win32</PackageTags>
+		<Description>This package contains the interop wrappers for WinRT-APIs, that depend on CoreWindow, and other interop helpers for WinUI Window (e.g. to set an icon). There are also some interop components that may help from inside an AppContainer like when using UWP.</Description>
+		<Copyright>© 2022 ShortDevelopment</Copyright>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="..\LICENSE">
 			<Pack>True</Pack>
-			<PackagePath></PackagePath>
+			<PackagePath>\</PackagePath>
 		</None>
 		<None Include="..\Readme.md">
 			<Pack>True</Pack>
-			<PackagePath></PackagePath>
+			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
 
