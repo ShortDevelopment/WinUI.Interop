@@ -48,15 +48,17 @@ namespace WinUI.Interop.CoreWindow
         /// <summary>
         /// Handle of the <see cref="Windows.UI.Core.CoreWindow"/> of the current thread
         /// </summary>
-        public static IntPtr CoreWindowHwnd { get => Instance.WindowHandle; }
+        public static IntPtr CoreWindowHwnd
+            => Instance.WindowHandle;
 
         /// <summary>
         /// Handle of the <c>ApplicationFrameWindow</c> of the current thread. <br/>
         /// This window is hosted by another process!
         /// </summary>
-        public static IntPtr FrameWindowHwnd { get => GetParent(CoreWindowHwnd); }
+        public static IntPtr FrameWindowHwnd
+            => GetParent(CoreWindowHwnd);
 
-        [DllImport("user32.dll", SetLastError = true, ExactSpelling = true)]
+        [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr GetParent(IntPtr hWnd);
     }
 }

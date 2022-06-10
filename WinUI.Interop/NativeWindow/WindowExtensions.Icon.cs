@@ -18,7 +18,7 @@ namespace WinUI.Interop.NativeWindow
         /// </summary>
         /// <param name="hWnd">Handle of the window</param>
         /// <param name="resourceName">Full qualified name of the embedded resource icon file</param>
-        private static void SetIcon(IntPtr hWnd, string resourceName)
+        public static void SetIcon(IntPtr hWnd, string resourceName)
         {
             using (Stream stream = Assembly.GetEntryAssembly().GetManifestResourceStream(resourceName))
             {
@@ -47,7 +47,7 @@ namespace WinUI.Interop.NativeWindow
         #region SendMessage
         private const uint WM_SETICON = 0x0080;
 
-        [DllImport("user32", ExactSpelling = true)]
+        [DllImport("user32.dll")]
         private static extern void SendMessage(IntPtr hWnd, uint msgId, IntPtr reserved, IntPtr hIcon);
         #endregion
     }
