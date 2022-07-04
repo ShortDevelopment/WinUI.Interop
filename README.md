@@ -116,3 +116,11 @@ using WinUI.Interop.CoreWindow;
 ```csharp
 IntPtr hWnd = CoreWindowInterop.CoreWindowHwnd;
 ```
+or
+```csharp
+IntPtr hWnd = CoreWindow.GetForCurrentThread().GetHwnd();
+```
+or
+```csharp
+IntPtr hWnd = Window.Current.GetHwnd();
+```
