@@ -1,6 +1,6 @@
 ﻿#if USING_WINUI
 using Microsoft.UI;
-using Microsoft.UI.Windowing;
+using WinUIAppWindow = Microsoft.UI.Windowing.AppWindow;
 using Microsoft.UI.Xaml;
 using System;
 using WinRT;
@@ -26,11 +26,11 @@ namespace WinUI.Interop.NativeWindow
         /// </summary>
         /// <param name="window">Reference to a <c>WinUI</c> <see cref="Microsoft.UI.Xaml.Window"/></param>
         /// <returns></returns>
-        public static AppWindow GetAppWindow(this Window window)
+        public static WinUIAppWindow GetAppWindow(this Window window)
         {
             IntPtr hWnd = window.GetHandle();
             var winId = Win32Interop.GetWindowIdFromWindow(hWnd);
-            return AppWindow.GetFromWindowId(winId);
+            return WinUIAppWindow.GetFromWindowId(winId);
         }
 #endif
     }

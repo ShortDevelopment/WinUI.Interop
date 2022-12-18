@@ -40,7 +40,7 @@
 
 	<!-- nuget.org -->
 	<PropertyGroup>
-		<Version>0.2.6</Version>
+		<Version>0.3.0</Version>
 		<Authors>ShortDevelopment</Authors>
 		<PackageReadmeFile>Readme.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
