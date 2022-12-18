@@ -124,3 +124,13 @@ or
 ```csharp
 IntPtr hWnd = Window.Current.GetHwnd();
 ```
+
+### *UWP*: Handle of `AppWindow`
+```csharp
+using System;
+using WinUI.Interop.AppWindow;
+```
+```csharp
+AppWindow window = ...;
+IntPtr hWnd = window.GetHwnd();
+```
