@@ -1,16 +1,20 @@
 # WinUI.Interop
+
+> [!Warning]
+> This package is no longer maintained, as there are better 1st and 3rd party libraries.
+
 This package contains the interop wrappers for *WinRT*-APIs, that depend on `CoreWindow`, and other interop helpers for *WinUI* `Window` (e.g. to set an icon).   
 There are also some interop components that may help from inside an AppContainer like when using *UWP*.   
    
-This package is based on the work of [AdamBraden/WindowsInteropWrappers](https://github.com/AdamBraden/WindowsInteropWrappers).   
-   
-  
-[![grafic](https://img.shields.io/static/v1?label=Nuget&message=WinUI.Interop&color=004880&style=for-the-badge&logo=nuget)](https://www.nuget.org/packages/WinUI.Interop/)
+This package is based on the work of [AdamBraden/WindowsInteropWrappers](https://github.com/AdamBraden/WindowsInteropWrappers).
 
 ---
 
 ## Examples
 ### *WinUI3*: window icon
+> [!Tip]
+> Use [WinUIEx](https://www.nuget.org/packages/WinUIEx/) instead
+
 The `BuildAction` of the icon file has to be set to `Embedded resource` in the *Properties* window!
 ```csharp
 using Microsoft.UI.Xaml;
@@ -32,6 +36,9 @@ namespace NAMESPACE
 ---
 
 ### *Win32*: share content
+> [!Tip]
+> Use `DataTransferManagerInterop` with [CsWinRT](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT) instead
+
 ```csharp
 using WinUI.Interop.CoreWindow;
 ```
@@ -53,6 +60,9 @@ DataTransferManagerInterop.ShowShareUIForWindow(Process.GetCurrentProcess().Main
 ```
 
 ### *Win32*: UWP dialog
+> [!Tip]
+> Use `IInitializeWithWindow` with [CsWinRT](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT) instead
+
 #### TargetFramework >= net5.0
 ```csharp
 using WinRT;
@@ -80,6 +90,9 @@ StorageFile file = await picker.PickSaveFileAsync();
 ---
 
 ### `RuntimeInformation`
+> [!Tip]
+> Use [ShortDev.Uwp.FullTrust](https://www.nuget.org/packages/ShortDev.Uwp.FullTrust) instead
+
 ```csharp
 using WinUI.Interop;
 ```
@@ -94,6 +107,9 @@ RuntimeInformation.HasCapability("extendedExecutionBackgroundAudio");
 ---
 
 ### *UWP*: Lowlevel audio control
+> [!Tip]
+> Use `ActivateAudioInterfaceAsync` with [CsWin32](https://www.nuget.org/packages/Microsoft.Windows.CsWin32) instead
+
 ```csharp
 using Windows.Media.Devices;
 using WinUI.Interop.AppContainer;
@@ -109,6 +125,9 @@ async void ...()
 ```
 
 ### *UWP*: Handle of `CoreWindow`
+> [!Tip]
+> Use `ICoreWindowInterop` with [CsWinRT](https://www.nuget.org/packages/Microsoft.Windows.CsWinRT) instead
+
 ```csharp
 using System;
 using WinUI.Interop.CoreWindow;
